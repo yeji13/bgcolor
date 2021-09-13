@@ -23,6 +23,12 @@
       margin: auto;
       text-align: center;
     }
+    .bg--img{
+      background: url('bgimg.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+    }
   </style>
 </head>
 <body>
@@ -30,6 +36,7 @@
     <button class="btn_toggle">배경색상변경 토글버튼</button>
     <button class="btn--reset">배경색상 리셋</button>
     <button class="btn--bggrayt">배경색상변경 그레이</button>
+    <button class="btn--bgimg">배경이미지</button>
 
   </div>
   
@@ -38,19 +45,27 @@
     const btnToggle = document.querySelector('.btn_toggle');
     btnToggle.addEventListener('click', function() {
       document.body.classList.toggle('bgcolor--blue');
+      document.body.classList.remove('bg--img');
       console.log('버튼클릭');
     });
 
     const btnResrt = document.querySelector('.btn--reset');
     btnResrt.addEventListener('click', function () {
-      document.body.classList.remove('bgcolor--blue', 'bgcolor--gray');
+      document.body.classList.remove('bgcolor--blue', 'bgcolor--gray',
+      'bg--img');
         });
 
-    const btnBgGray = document.body.querySelector('.btn--bggrayt');
+    const btnBgGray = document.querySelector('.btn--bggrayt');
     btnBgGray.addEventListener('click', function(){
       document.body.classList.add('bgcolor--gray');
+      document.body.classList.remove('bg--img');
     });
 
+    const btnBgImg = document.querySelector('.btn--bgimg');
+    btnBgImg.addEventListener('click', function(){
+      document.body.classList.add('bg--img');
+    });
+    
   </script>
 
 </body>
