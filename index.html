@@ -56,22 +56,22 @@
     const bgContainer = document.querySelector('.bg--img');
     const btnToggle = document.querySelector('.btn_toggle');
     btnToggle.addEventListener('click', function() {
-      document.body.classList.toggle('bgcolor--blue');
       bgContainer.classList.remove('bg__img--show');
+      document.body.classList.toggle('bgcolor--blue');
       //console.log('버튼클릭');
     });
 
     const btnResrt = document.querySelector('.btn--reset');
     btnResrt.addEventListener('click', function () {
-      bgContainer.classList.remove('bg__img--show');
       document.body.classList.remove('bgcolor--blue', 'bgcolor--gray',
       'bg--img');
+      bgContainer.classList.remove('bg__img--show');
         });
 
     const btnBgGray = document.querySelector('.btn--bggray');
     btnBgGray.addEventListener('click', function(){
-      document.body.classList.add('bgcolor--gray');
       bgContainer.classList.remove('bg__img--show');
+      document.body.classList.add('bgcolor--gray');
     });
 
 
