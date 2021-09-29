@@ -24,46 +24,60 @@
       text-align: center;
     }
     .bg--img{
+      margin: 0;
       background: url('bgimg.jpg');
       background-repeat: no-repeat;
       background-size: cover;
-      height: 100%;
+      height: 100vw;
+      width: 100vw;
+      position: absolute;
+      transition: all 1s;
+      opacity: 0;
+    }
+    .bg__img--show{
+      opacity: 1;
     }
   </style>
 </head>
 <body>
+  <div class="bg--img"></div>
   <div class="btns">
-    <button class="btn_toggle">배경색상변경 토글버튼</button>
-    <button class="btn--reset">배경색상 리셋</button>
-    <button class="btn--bggrayt">배경색상변경 그레이</button>
-    <button class="btn--bgimg">배경이미지</button>
-
+    <div class="container">
+      <div class="btns_menu">
+        <button class="btn_toggle">배경색상변경 토글버튼</button>
+        <button class="btn--reset">배경색상 리셋</button>
+        <button class="btn--bggray">배경색상변경 그레이</button>
+        <button class="btn--bgimg">배경이미지</button>
+      </div>
+    </div>
   </div>
-  
-  
   <script>
+    const bgContainer = document.querySelector('.bg--img');
     const btnToggle = document.querySelector('.btn_toggle');
     btnToggle.addEventListener('click', function() {
       document.body.classList.toggle('bgcolor--blue');
-      document.body.classList.remove('bg--img');
-      console.log('버튼클릭');
+      bgContainer.classList.remove('bg__img--show');
+      //console.log('버튼클릭');
     });
 
     const btnResrt = document.querySelector('.btn--reset');
     btnResrt.addEventListener('click', function () {
+      bgContainer.classList.remove('bg__img--show');
       document.body.classList.remove('bgcolor--blue', 'bgcolor--gray',
       'bg--img');
         });
 
-    const btnBgGray = document.querySelector('.btn--bggrayt');
+    const btnBgGray = document.querySelector('.btn--bggray');
     btnBgGray.addEventListener('click', function(){
       document.body.classList.add('bgcolor--gray');
-      document.body.classList.remove('bg--img');
+      bgContainer.classList.remove('bg__img--show');
     });
+
 
     const btnBgImg = document.querySelector('.btn--bgimg');
     btnBgImg.addEventListener('click', function(){
-      document.body.classList.add('bg--img');
+      bgContainer.classList.add('bg__img--show');
+      
     });
     
   </script>
