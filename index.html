@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  
   <style>
     body{
       background-color: lightyellow;
@@ -49,9 +50,33 @@
     .btns.bgshow{
       background-color: tomato;
     }
+   /* #top_btn{
+      position: fixed;
+      bottom: 9%;
+      right: 6%;
+      opacity: 0;
+    }
+    #top_btn.visible{
+      opacity: 1;
+    }*/
+    .arrow_up.visible {
+      opacity: 1;
+    }
+    .arrow_up {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      width: 70px;
+      height: 70px;
+      background: none;
+      border: none;
+      text-align: center;
+      opacity: 0;
+    }
   </style>
 </head>
 <body>
+  
   <div class="bg--img"></div>
   <div class="btns">
     <div class="container">
@@ -60,9 +85,18 @@
         <button class="btn--reset">배경색상 리셋</button>
         <button class="btn--bggray">배경색상변경 그레이</button>
         <button class="btn--bgimg">배경이미지</button>
+        
       </div>
     </div>
   </div>
+  <section id="home">
+    <div class="wrapper"></div>
+  </section>
+  <button class="arrow_up">
+    <img class="material-icons" src="up_icon.png" alt="">
+  </button>
+
+  
   <script>
     const bgContainer = document.querySelector('.bg--img');
     const btnToggle = document.querySelector('.btn_toggle');
@@ -99,7 +133,25 @@
         navContainer.classList.remove('bgshow');
       }
     });
+
+    const up = document.querySelector('.arrow_up');
+    document.addEventListener('scroll', function(){
+      if (window.scrollY > 500){
+        up.classList.add('visible');
+      }else{
+        up.classList.remove('visible');
+      }
+    });
+   
+    const home = document.querySelector('#home');
+    up.addEventListener('click', function(){
+      home.scrollIntoView({behavior:"smooth"});
+    });
+
     
+      
+
+
   </script>
 
 </body>
