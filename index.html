@@ -48,7 +48,7 @@
       transition: 0.3s;
     }
     .btns.bgshow{
-      background-color: tomato;
+      background-color: rgb(55, 125, 200);
     }
    /* #top_btn{
       position: fixed;
@@ -73,6 +73,35 @@
       text-align: center;
       opacity: 0;
     }
+    section{
+      width: 100%;
+      text-align: center;
+    }
+    .wrapper{
+      max-width: 1200px;
+      margin: auto;
+    }
+    #home{
+      padding-top: 88px;
+      text-align: center;
+    }
+    h1{
+      color: skyblue;
+      font-size: 48px;
+      margin-top: 100px;
+    }
+    h2{
+      font-size: 32px;
+    }
+    h3{
+      font-size: 24px;
+      font-weight: 300;
+    }
+    button{
+      border: none;
+      background-color: rgb(255, 225, 53);
+      padding: 20px 30px;
+    }
   </style>
 </head>
 <body>
@@ -81,21 +110,54 @@
   <div class="btns">
     <div class="container">
       <div class="btns_menu">
-        <button class="btn_toggle">배경색상변경 토글버튼</button>
-        <button class="btn--reset">배경색상 리셋</button>
-        <button class="btn--bggray">배경색상변경 그레이</button>
-        <button class="btn--bgimg">배경이미지</button>
+        <button class="btn_toggle">HOME</button>
+        <button class="btn--reset">ABOUT</button>
+        <button class="btn--bggray">SKILLS</button>
+        <button class="btn--bgimg">WORKS</button>
+        <button class="btn--contact">CONTACT</button>
         
       </div>
     </div>
   </div>
-  <section id="home">
-    <div class="wrapper"></div>
-  </section>
+  
   <button class="arrow_up">
     <img class="material-icons" src="up_icon.png" alt="">
   </button>
-
+  <section id="home">
+    <div class="wrapper">
+      <h1>home</h1>
+      <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+      <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In harum, velit dolore maiores sapiente quis optio hic illum. Dolorem consequuntur placeat harum. Inventore, error! Est dolores atque fugiat aliquid corrupti.</h3>
+    </div>
+  </section>
+  <section id="about">
+    <div class="wrapper">
+      <h1>about</h1>
+      <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+      <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In harum, velit dolore maiores sapiente quis optio hic illum. Dolorem consequuntur placeat harum. Inventore, error! Est dolores atque fugiat aliquid corrupti.</h3>
+    </div>
+  </section>
+  <section id="skills">
+    <div class="wrapper">
+      <h1>skills</h1>
+      <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+      <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In harum, velit dolore maiores sapiente quis optio hic illum. Dolorem consequuntur placeat harum. Inventore, error! Est dolores atque fugiat aliquid corrupti.</h3>
+    </div>
+  </section>
+  <section id="works">
+    <div class="wrapper">
+      <h1>works</h1>
+      <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+      <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In harum, velit dolore maiores sapiente quis optio hic illum. Dolorem consequuntur placeat harum. Inventore, error! Est dolores atque fugiat aliquid corrupti.</h3>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="wrapper">
+      <h1>contact me</h1>
+      <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+      <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In harum, velit dolore maiores sapiente quis optio hic illum. Dolorem consequuntur placeat harum. Inventore, error! Est dolores atque fugiat aliquid corrupti.</h3>
+    </div>
+  </section>
   
   <script>
     const bgContainer = document.querySelector('.bg--img');
@@ -104,26 +166,43 @@
       bgContainer.classList.remove('bg__img--show');
       document.body.classList.toggle('bgcolor--blue');
       //console.log('버튼클릭');
+      home.scrollIntoView({behavior:"smooth", block:"center"});
     });
 
+    
+
+
     const btnResrt = document.querySelector('.btn--reset');
+    const about = document.querySelector('#about');
     btnResrt.addEventListener('click', function () {
       document.body.classList.remove('bgcolor--blue', 'bgcolor--gray',
       'bg--img');
       bgContainer.classList.remove('bg__img--show');
+      about.scrollIntoView({behavior:"smooth", block:"center"});
         });
 
     const btnBgGray = document.querySelector('.btn--bggray');
+    const skills = document.querySelector('#skills');
     btnBgGray.addEventListener('click', function(){
       bgContainer.classList.remove('bg__img--show');
       document.body.classList.add('bgcolor--gray');
+      skills.scrollIntoView({behavior:"smooth", block:"center"});
     });
 
 
     const btnBgImg = document.querySelector('.btn--bgimg');
+    const works = document.querySelector('#works');
     btnBgImg.addEventListener('click', function(){
       bgContainer.classList.add('bg__img--show');
+      works.scrollIntoView({behavior:"smooth", block:"center"});
     });
+
+    const btncon = document.querySelector('.btn--contact');
+    const contact = document.querySelector('#contact');
+    btncon.addEventListener('click', function(){
+      contact.scrollIntoView({behavior:"smooth", block:"center"});
+    });
+
 
     const navContainer = document.querySelector('.btns')
     document.addEventListener('scroll', function(){
